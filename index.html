@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DEZNERO — Game Top-Up</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Particle Canvas Background -->
+  <canvas id="particles" class="particles-canvas"></canvas>
+
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Scanlines Overlay -->
+  <div class="scanlines"></div>
+
+  <!-- HEADER / NAV -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-vein">DEZ</span><span class="logo-store">NERO</span>
+        <div class="logo-pulse"></div>
+      </div>
+      <nav class="nav">
+        <a href="#" class="nav-link active">Top-Up</a>
+        <a href="#" class="nav-link">Riwayat</a>
+        <a href="#" class="nav-link">Promo</a>
+        <a href="#" class="nav-link">Support</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-login">
+          <span class="btn-glow"></span>
+          Masuk
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">⚡ FASTEST TOP-UP IN UNIVERSE</div>
+      <h1 class="hero-title">
+        <span class="glitch" data-text="TOP-UP">TOP-UP</span>
+        <br/>
+        <span class="hero-sub">GAME FAVORITMU</span>
+      </h1>
+      <p class="hero-desc">Proses instan · 500+ Game · Harga terbaik · 24/7 aktif</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-target="2500000">0</span>
+          <span class="stat-label">Transaksi</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="500">0</span>
+          <span class="stat-label">Game Tersedia</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="99">0</span>
+          <span class="stat-label">% Sukses</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hologram-ring ring-1"></div>
+      <div class="hologram-ring ring-2"></div>
+      <div class="hologram-ring ring-3"></div>
+      <div class="center-orb">
+        <div class="orb-inner">⚡</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH GAME -->
+  <section class="search-section">
+    <div class="container">
+      <div class="search-wrapper">
+        <div class="search-icon">🔍</div>
+        <input type="text" class="search-input" id="gameSearch" placeholder="Cari game favoritmu..." autocomplete="off"/>
+        <div class="search-shortcut">ESC</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME CATEGORIES -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Pilih <span class="accent">Game</span></h2>
+        <div class="title-line"></div>
+      </div>
+      <div class="category-tabs">
+        <button class="cat-tab active" data-cat="all">Semua</button>
+        <button class="cat-tab" data-cat="mobile">Mobile</button>
+        <button class="cat-tab" data-cat="pc">PC</button>
+        <button class="cat-tab" data-cat="console">Console</button>
+        <button class="cat-tab" data-cat="voucher">Voucher</button>
+      </div>
+      <div class="games-grid" id="gamesGrid">
+
+        <!-- Mobile Legends -->
+        <div class="game-card" data-cat="mobile" data-game="ml">
+          <div class="card-glow"></div>
+          <div class="card-badge hot">🔥 HOT</div>
+          <div class="card-icon">
+            <div class="game-icon-bg ml-bg">
+              <img class="game-img" src="IMG/mlbb.jpg" alt="Mobile Legends" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="game-emoji-fallback">⚔️</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Mobile Legends</h3>
+            <p class="card-sub">Diamonds · Season Pass</p>
+            <div class="card-price">Mulai Rp 1.500</div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <!-- Free Fire -->
+        <div class="game-card" data-cat="mobile" data-game="ff">
+          <div class="card-glow"></div>
+          <div class="card-badge new">✨ NEW</div>
+          <div class="card-icon">
+            <div class="game-icon-bg ff-bg">
+              <img class="game-img" src="IMG/ffv6.png" alt="Free Fire" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="game-emoji-fallback">🔥</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Free Fire</h3>
+            <p class="card-sub">Diamonds · Elite Pass</p>
+            <div class="card-price">Mulai Rp 1.200</div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <!-- PUBG Mobile -->
+        <div class="game-card" data-cat="mobile" data-game="pubg">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <div class="game-icon-bg pubg-bg">
+              <img class="game-img" src="IMG/pubgmv7.png" alt="PUBG Mobile" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="game-emoji-fallback">🎯</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">PUBG Mobile</h3>
+            <p class="card-sub">UC · Royal Pass</p>
+            <div class="card-price">Mulai Rp 1.800</div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <!-- Genshin Impact -->
+        <div class="game-card" data-cat="mobile" data-game="gi">
+          <div class="card-glow"></div>
+          <div class="card-badge promo">💎 PROMO</div>
+          <div class="card-icon">
+            <div class="game-icon-bg gi-bg">
+              <img class="game-img" src="IMG/genshin.png" alt="Genshin Impact" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="game-emoji-fallback">🌟</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Genshin Impact</h3>
+            <p class="card-sub">Genesis Crystals · Welkin</p>
+            <div class="card-price">Mulai Rp 2.000</div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <!-- Valorant -->
+        <div class="game-card" data-cat="pc" data-game="val">
+          <div class="card-glow"></div>
+          <div class="card-badge hot">🔥 HOT</div>
+          <div class="card-icon">
+            <div class="game-icon-bg val-bg">
+              <img class="game-img" src="IMG/vlalo.jpg" alt="Valorant" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="game-emoji-fallback">🎮</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Valorant</h3>
+            <p class="card-sub">VP · Battle Pass</p>
+            <div class="card-price">Mulai Rp 5.000</div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <!-- Honor of Kings -->
+        <div class="game-card" data-cat="mobile" data-game="hok">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <div class="game-icon-bg hok-bg">
+              <img class="game-img" src="IMG/hokv7.png" alt="Honor of Kings" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="game-emoji-fallback">👑</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Honor of Kings</h3>
+            <p class="card-sub">Tokens · Season Pass</p>
+            <div class="card-price">Mulai Rp 2.500</div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <!-- Steam Wallet -->
+        <div class="game-card" data-cat="pc voucher" data-game="steam">
+          <div class="card-glow"></div>
+          <div class="card-badge new">🎁 GIFT</div>
+          <div class="card-icon">
+            <div class="game-icon-bg steam-bg">
+              <img class="game-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/200px-Steam_icon_logo.svg.png" alt="Steam" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="game-emoji-fallback">🖥️</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Steam Wallet</h3>
+            <p class="card-sub">USD · IDR Wallet Code</p>
+            <div class="card-price">Mulai Rp 15.000</div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+        <!-- Clash of Clans -->
+        <div class="game-card" data-cat="mobile" data-game="coc">
+          <div class="card-glow"></div>
+          <div class="card-icon">
+            <div class="game-icon-bg coc-bg">
+              <img class="game-img" src="IMG/coc.jpg" alt="Clash of Clans" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <span class="game-emoji-fallback">🏰</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Clash of Clans</h3>
+            <p class="card-sub">Gems · Season Challenges</p>
+            <div class="card-price">Mulai Rp 3.000</div>
+          </div>
+          <div class="card-shine"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP-UP MODAL OVERLAY -->
+  <div class="modal-overlay" id="topupModal">
+    <div class="modal-container">
+      <button class="modal-close" id="modalClose">✕</button>
+
+      <!-- Step Indicator -->
+      <div class="step-indicator">
+        <div class="step active" data-step="1">
+          <div class="step-dot">1</div>
+          <span>Game</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" data-step="2">
+          <div class="step-dot">2</div>
+          <span>Nominal</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" data-step="3">
+          <div class="step-dot">3</div>
+          <span>Akun</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" data-step="4">
+          <div class="step-dot">4</div>
+          <span>Bayar</span>
+        </div>
+      </div>
+
+      <!-- STEP 1: Game Info -->
+      <div class="modal-step active" id="step1">
+        <div class="modal-game-header">
+          <div class="modal-game-icon" id="modalGameIcon"></div>
+          <div>
+            <h2 class="modal-game-title" id="modalGameTitle"></h2>
+            <p class="modal-game-sub" id="modalGameSub"></p>
+          </div>
+        </div>
+        <button class="btn-primary btn-full btn-next" data-next="2">
+          Pilih Nominal <span class="btn-arrow">→</span>
+        </button>
+      </div>
+
+      <!-- STEP 2: Denomination -->
+      <div class="modal-step" id="step2">
+        <h3 class="modal-section-title">Pilih Nominal</h3>
+        <div class="denom-grid" id="denomGrid"></div>
+        <div class="selected-denom" id="selectedDenomInfo" style="display:none;">
+          <span class="denom-label">Dipilih:</span>
+          <span class="denom-val" id="denomVal"></span>
+        </div>
+        <div class="modal-nav">
+          <button class="btn-outline btn-back" data-back="1">← Kembali</button>
+          <button class="btn-primary btn-next" data-next="3" id="denomNext" disabled>Lanjut →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: User ID -->
+      <div class="modal-step" id="step3">
+        <h3 class="modal-section-title">Masukkan ID Akun</h3>
+        <div class="input-group">
+          <label class="input-label">User ID</label>
+          <div class="input-wrapper">
+            <input type="text" class="form-input" id="userId" placeholder="Contoh: 123456789"/>
+            <span class="input-icon">👤</span>
+          </div>
+        </div>
+        <div class="input-group" id="serverGroup">
+          <label class="input-label">Server (Opsional)</label>
+          <div class="input-wrapper">
+            <select class="form-input form-select" id="serverId">
+              <option value="">Pilih Server</option>
+              <option value="1">Server 1 (Indonesia)</option>
+              <option value="2">Server 2 (Asia)</option>
+              <option value="3">Server 3 (EU)</option>
+            </select>
+          </div>
+        </div>
+        <div class="verify-banner" id="verifyBanner" style="display:none;">
+          <span class="verify-icon">✅</span>
+          <span class="verify-text">Akun terverifikasi: <strong id="verifyName"></strong></span>
+        </div>
+        <div class="modal-nav">
+          <button class="btn-outline btn-back" data-back="2">← Kembali</button>
+          <button class="btn-primary btn-next" data-next="4" id="userNext">Verifikasi & Lanjut →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Payment -->
+      <div class="modal-step" id="step4">
+        <h3 class="modal-section-title">Metode Pembayaran</h3>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <div class="summary-row">
+            <span>Item</span>
+            <span id="sumItem">—</span>
+          </div>
+          <div class="summary-row">
+            <span>User ID</span>
+            <span id="sumUser">—</span>
+          </div>
+          <div class="summary-row summary-total">
+            <span>Total</span>
+            <span id="sumTotal">—</span>
+          </div>
+        </div>
+
+        <div class="payment-methods">
+          <div class="pay-group">
+            <div class="pay-group-title">E-Wallet</div>
+            <div class="pay-options">
+              <label class="pay-option">
+                <input type="radio" name="payment" value="gopay"/>
+                <div class="pay-card">
+                  <span class="pay-icon">💚</span>
+                  <span>GoPay</span>
+                </div>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="ovo"/>
+                <div class="pay-card">
+                  <span class="pay-icon">💜</span>
+                  <span>OVO</span>
+                </div>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="dana"/>
+                <div class="pay-card">
+                  <span class="pay-icon">🔵</span>
+                  <span>DANA</span>
+                </div>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="shopeepay"/>
+                <div class="pay-card">
+                  <span class="pay-icon">🧡</span>
+                  <span>ShopeePay</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="pay-group">
+            <div class="pay-group-title">Transfer Bank</div>
+            <div class="pay-options">
+              <label class="pay-option">
+                <input type="radio" name="payment" value="bca"/>
+                <div class="pay-card">
+                  <span class="pay-icon">🏦</span>
+                  <span>BCA</span>
+                </div>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="mandiri"/>
+                <div class="pay-card">
+                  <span class="pay-icon">🏦</span>
+                  <span>Mandiri</span>
+                </div>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="bni"/>
+                <div class="pay-card">
+                  <span class="pay-icon">🏦</span>
+                  <span>BNI</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="pay-group">
+            <div class="pay-group-title">Lainnya</div>
+            <div class="pay-options">
+              <label class="pay-option">
+                <input type="radio" name="payment" value="alfamart"/>
+                <div class="pay-card">
+                  <span class="pay-icon">🏪</span>
+                  <span>Alfamart</span>
+                </div>
+              </label>
+              <label class="pay-option">
+                <input type="radio" name="payment" value="qris"/>
+                <div class="pay-card">
+                  <span class="pay-icon">📱</span>
+                  <span>QRIS</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-nav">
+          <button class="btn-outline btn-back" data-back="3">← Kembali</button>
+          <button class="btn-primary btn-pay" id="payBtn">
+            <span class="btn-glow"></span>
+            ⚡ Bayar Sekarang
+          </button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="modal-step" id="stepSuccess">
+        <div class="success-anim">
+          <div class="success-circle">
+            <div class="success-check">✓</div>
+          </div>
+          <div class="success-rings">
+            <div class="s-ring r1"></div>
+            <div class="s-ring r2"></div>
+            <div class="s-ring r3"></div>
+          </div>
+        </div>
+        <h2 class="success-title">Pembayaran Berhasil!</h2>
+        <p class="success-desc">Item kamu sedang diproses dan akan segera masuk ke akun dalam <strong>1-3 menit</strong></p>
+        <div class="order-id">
+          ID Transaksi: <strong id="orderId"></strong>
+        </div>
+        <button class="btn-primary btn-full" id="backHomeBtn">Kembali ke Beranda</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PROMO BANNER -->
+  <section class="promo-section">
+    <div class="container">
+      <div class="promo-ticker">
+        <div class="ticker-label">⚡ PROMO</div>
+        <div class="ticker-track">
+          <div class="ticker-content">
+            🎮 Cashback 10% setiap transaksi menggunakan GoPay &nbsp;|&nbsp;
+            💎 Bonus Diamond 5% setiap hari Jumat &nbsp;|&nbsp;
+            🔥 Harga spesial Mobile Legends hari ini &nbsp;|&nbsp;
+            ✨ Daftar sekarang & dapatkan voucher Rp 5.000 &nbsp;|&nbsp;
+            👑 Member VIP: gratis ongkir semua transaksi &nbsp;|&nbsp;
+          </div>
+          <div class="ticker-content" aria-hidden="true">
+            🎮 Cashback 10% setiap transaksi menggunakan GoPay &nbsp;|&nbsp;
+            💎 Bonus Diamond 5% setiap hari Jumat &nbsp;|&nbsp;
+            🔥 Harga spesial Mobile Legends hari ini &nbsp;|&nbsp;
+            ✨ Daftar sekarang & dapatkan voucher Rp 5.000 &nbsp;|&nbsp;
+            👑 Member VIP: gratis ongkir semua transaksi &nbsp;|&nbsp;
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Proses Instan</h3>
+          <p>Top-up masuk dalam hitungan detik. Tidak perlu menunggu lama.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>100% Aman</h3>
+          <p>Sistem keamanan berlapis. Transaksi kamu terjamin aman bersama kami.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💸</div>
+          <h3>Harga Termurah</h3>
+          <p>Harga kompetitif dan transparan. Tidak ada biaya tersembunyi.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>24/7 Online</h3>
+          <p>Layanan tersedia 24 jam penuh, 7 hari seminggu tanpa henti.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <span class="logo-vein">DEZ</span><span class="logo-store">NERO</span>
+          </div>
+          <p>Platform top-up game terpercaya dengan teknologi mutakhir.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Layanan</h4>
+            <a href="#">Top-Up Game</a>
+            <a href="#">Voucher</a>
+            <a href="#">Jasa Boosting</a>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <a href="#">FAQ</a>
+            <a href="#">Live Chat</a>
+            <a href="#">WhatsApp</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <a href="#">Kebijakan Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">Refund Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 VeinStore. All rights reserved.</span>
+        <span>Made with ⚡ by VeinStore Team</span>
+      </div>
+    </div>
+  </footer>
+  <script src="JS/script.js"></script>
+</body>
+</html>
